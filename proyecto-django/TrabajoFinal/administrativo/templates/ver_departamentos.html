@@ -1,11 +1,11 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Listado de Casas
+  Listado de Departamentos
 {% endblock %}
 
 {% block content %}
-<h3>Número de casas {{ numero_casas }}</h3>
+<h3>Número de departamentos {{ numero_departamentos }}</h3>
 
 <table id="tabla_datos">
 
@@ -14,26 +14,24 @@
       <th>Propietario</th>
       <th>Direccion</th>
       <th>Barrio</th>
-      <th>Valor de la casa</th>
-      <th>Color de la casa</th>
+      <th>Valor del departamento</th>
       <th>Numero de cuartos</th>
-      <th>Numero de pisos</th>
+      <th>Valor de mantenimiento</th>
       <th>Opciones</th>
     </tr>
   </thead>
 
-  {% for e in casas %}
+  {% for e in departamentos %}
   <tr>
-    <td>{{e.propietario.nombres}}</td>   
+    <td>{{e.propietario.nombres}}</td>  
     <td>{{e.direccion}}</td>
-    <td>{{e.barrio.nombreBarrio}}</td> 
-    <td>{{e.valorCasa}}</td>
-    <td>{{e.colorCasa}}</td>
+    <td>{{e.barrio.nombreBarrio}}</td>
+    <td>{{e.valorDepartamento}}</td>
     <td>{{e.numCuartos}}</td>
-    <td>{{e.numPisos}}</td>
+    <td>{{e.valorMantenimiento}}</td>
     <td>
-      <a href="{% url 'editar_casa' e.id %}">Editar</a> <br>
-      <a href="{% url 'eliminar_casa' e.id %}"
+      <a href="{% url 'editar_departamento' e.id %}">Editar</a> <br>
+      <a href="{% url 'eliminar_departamento' e.id %}"
       onclick="return confirm('¿Está seguro de la eliminación?')" >
       Eliminar</a>
     </td>

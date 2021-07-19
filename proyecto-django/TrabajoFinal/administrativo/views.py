@@ -99,7 +99,7 @@ def editar_casa(request, id):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index)
+            return redirect(ver_casas)
     else:
         formulario = CasaForm(instance=casa)
     diccionario = {'formulario': formulario}
@@ -111,7 +111,7 @@ def eliminar_casa(request, id):
     """
     casa = Casa.objects.get(pk=id)
     casa.delete()
-    return redirect(index)
+    return redirect(ver_casas)
 """
 CRUD DEPARTAMENTO
 """
@@ -128,30 +128,30 @@ def crear_departamento(request):
         formulario = DepartamentoForm()
     diccionario = {'formulario': formulario}
 
-    return render(request, 'crearCasa.html', diccionario)
+    return render(request, 'crearDepartamento.html', diccionario)
 
 def editar_departamento(request, id):
     """
     """
     departamento = Departamento.objects.get(pk=id)
     if request.method=='POST':
-        formulario = CasaForm(request.POST, instance=departamento)
+        formulario = DepartamentoForm(request.POST, instance=departamento)
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index)
+            return redirect(ver_departamentos)
     else:
-        formulario = CasaForm(instance=departamento)
+        formulario = DepartamentoForm(instance=departamento)
     diccionario = {'formulario': formulario}
 
-    return render(request, 'editarCasa.html', diccionario)
+    return render(request, 'editarDepartamento.html', diccionario)
 
 def eliminar_departamento(request, id):
     """
     """
     departamento = Departamento.objects.get(pk=id)
     departamento.delete()
-    return redirect(index)
+    return redirect(ver_departamentos)
 
 # crear vistas a través de viewsets
 class UserViewSet(viewsets.ModelViewSet):

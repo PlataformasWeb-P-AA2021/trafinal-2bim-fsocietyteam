@@ -1,0 +1,13 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Fsociety - Casas y departamentos
+{% endblock %}
+
+{% block content %}
+<h3>Menu de navegacion</h3>
+  
+<li><a href="{% url 'ver_casas' %}">Ver Casas</a></li>
+<li><a href="{% url 'ver_departamentos' %}">Ver Departamentos</a></li>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Personas</title>
+  </head>
+  <body>
+    <h2>Listado de personas - {{numero_personas}}</h2>
+
+    {% for e in personas %}
+
+    <ol>
+      <li><b>Nombres: </b>{{e['nombres']}}</li>
+      <li><b>Apellidos: </b>{{e['apellidos']}}</li>
+      <li><b>Cedula: </b>{{e['cedula']}}</li>
+      <li><b>Correo: </b>{{e['correo']}}</li>
+    </ol>
+    <hr>
+    {% endfor%}
+  </body>
+</html>

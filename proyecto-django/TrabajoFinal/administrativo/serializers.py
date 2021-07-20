@@ -19,19 +19,19 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class PersonaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Persona
-        fields = '_all_'
+        fields = '__all__'
 
 class BarrioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Barrio
-        fields = '_all_'
+        fields = '__all__'
 
 class CasaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Casa
-        fields = '_all_'
+        fields = '__all__'
 
 class DepartamentoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Departamento
-        fields = '_all_'
+        fields = '__all__'

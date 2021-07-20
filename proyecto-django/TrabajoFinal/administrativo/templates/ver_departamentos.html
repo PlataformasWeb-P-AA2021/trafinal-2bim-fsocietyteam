@@ -29,13 +29,14 @@
     <td>{{e.valorDepartamento}}</td>
     <td>{{e.numCuartos}}</td>
     <td>{{e.valorMantenimiento}}</td>
+    {% if user.is_authenticated %}
     <td>
       <a href="{% url 'editar_departamento' e.id %}">Editar</a> <br>
       <a href="{% url 'eliminar_departamento' e.id %}"
       onclick="return confirm('¿Está seguro de la eliminación?')" >
       Eliminar</a>
     </td>
-
+    {% endif %}
   </tr>
   {% endfor %}
 </table>

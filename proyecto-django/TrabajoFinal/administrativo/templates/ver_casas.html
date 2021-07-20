@@ -31,12 +31,14 @@
     <td>{{e.colorCasa}}</td>
     <td>{{e.numCuartos}}</td>
     <td>{{e.numPisos}}</td>
+    {% if user.is_authenticated %}
     <td>
       <a href="{% url 'editar_casa' e.id %}">Editar</a> <br>
       <a href="{% url 'eliminar_casa' e.id %}"
       onclick="return confirm('¿Está seguro de la eliminación?')" >
       Eliminar</a>
     </td>
+    {% endif %}
 
   </tr>
   {% endfor %}

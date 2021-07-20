@@ -41,9 +41,6 @@
           <li class="nav-item">
             <a class="nav-link active" href="{% url 'crear_departamento' %}">Agregar Departamento</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
-          </li class="nav-item">
           {% if user.is_authenticated %}
           <li><a class="nav-link active" href="{% url 'logout_view' %}">Salir</a></li>
         {% else %}
@@ -68,17 +65,16 @@
         {% endif %}
       </div>
     <nav class="top_menu">
-      <ul>
+      
         {% if user.is_authenticated %}
-          <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
+           <span class="nombre_usuario"> Bienvenido: {{user.username}} </span>
         {% endif %}
         
-      </ul>
+     
     </nav>
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{% static 'images/portada.jpg'%}" height=500px width=10px class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
           <img src="..." class="d-block w-100" alt="...">

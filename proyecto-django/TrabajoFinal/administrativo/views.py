@@ -90,6 +90,9 @@ def crear_casa(request):
 
     return render(request, 'crearCasa.html', diccionario)
 
+
+
+@login_required(login_url='/entrando/login/')
 def editar_casa(request, id):
     """
     """
@@ -106,6 +109,7 @@ def editar_casa(request, id):
 
     return render(request, 'editarCasa.html', diccionario)
 
+@login_required(login_url='/entrando/login/')
 def eliminar_casa(request, id):
     """
     """
@@ -130,6 +134,9 @@ def crear_departamento(request):
 
     return render(request, 'crearDepartamento.html', diccionario)
 
+
+
+@login_required(login_url='/entrando/login/')
 def editar_departamento(request, id):
     """
     """
@@ -146,6 +153,8 @@ def editar_departamento(request, id):
 
     return render(request, 'editarDepartamento.html', diccionario)
 
+
+@login_required(login_url='/entrando/login/')
 def eliminar_departamento(request, id):
     """
     """

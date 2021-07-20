@@ -5,9 +5,21 @@
 {% endblock %}
 
 {% block content %}
-<h3>Menu de navegacion</h3>
-  
-<li><a href="{% url 'ver_casas' %}">Ver Casas</a></li>
-<li><a href="{% url 'ver_departamentos' %}">Ver Departamentos</a></li>
+<div class="jumbotron">
+  <h1 class="display-4">Listado de Casas</h1>
+  <p class="lead">Aqui podra encontrar el listado de las casas registradas</p>
+  <hr class="my-4">
+  <p>Si desea ver el listado click al boton de abajo.</p>
+  <a class="btn btn-primary btn-lg" href="{% url 'ver_casas' %}" role="button">Ver listado</a>
+</div>
+<br>
+<div class="jumbotron">
+  <h1 class="display-4">Listado de Departamentos</h1>
+  <p class="lead">Aqui podra encontrar el listado de los departamentos registradas</p>
+  <hr class="my-4">
+  <p>Si desea ver el listado click al boton de abajo.</p>
+  <a class="btn btn-primary btn-lg" href="{% url 'ver_departamentos' %}" role="button">Ver listado</a>
+</div>
+
 
 {% endblock %}

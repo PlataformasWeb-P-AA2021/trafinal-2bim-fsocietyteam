@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <html>
   <head>
     <meta charset="utf-8" />
@@ -6,17 +7,24 @@
     <title>Personas</title>
   </head>
   <body>
-    <h2>Listado de personas - {{numero_personas}}</h2>
+    <div class="display-8 w-75 p-3 mx-auto">
+      <h2>Listado de personas - {{numero_personas}}</h2>
+    </div>
+    
 
     {% for e in personas %}
-
-    <ol>
-      <li><b>Nombres: </b>{{e['nombres']}}</li>
-      <li><b>Apellidos: </b>{{e['apellidos']}}</li>
-      <li><b>Cedula: </b>{{e['cedula']}}</li>
-      <li><b>Correo: </b>{{e['correo']}}</li>
-    </ol>
-    <hr>
+    <div class = "w-75 p-3 mx-auto">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action active">
+          Persona
+        </a>
+        <a class="list-group-item list-group-item-action"><b>Nombres: </b>{{e['nombres']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Apellidos: </b>{{e['apellidos']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Cedula: </b>{{e['cedula']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Correo: </b>{{e['correo']}}</a>
+      </div>
+    </div>
     {% endfor%}
+    
   </body>
 </html>

@@ -5,41 +5,51 @@
 {% endblock %}
 
 {% block content %}
-<h3>Número de departamentos {{ numero_departamentos }}</h3>
+<br>
+<div class="display-8 w-75 p-3 mx-auto">
+  <h1 class="">Listado de Departamentos</h1><br>
+  <a type="button" class="btn btn-primary">
+    Número de departamentos:  <span class="badge badge-light">{{ numero_departamentos }}</span>
+  </a>
+</div>
 
-<table id="tabla_datos">
+<div class="w-75 p-3 mx-auto">
+  <table id="tabla_datos" class="table table-striped table-bordered ">
 
-  <thead>
+    <thead class="thead-dark">
+      <tr>
+        <th>Propietario</th>
+        <th>Direccion</th>
+        <th>Barrio</th>
+        <th>Valor del departamento</th>
+        <th>Numero de cuartos</th>
+        <th>Valor de mantenimiento</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+  
+    {% for e in departamentos %}
     <tr>
-      <th>Propietario</th>
-      <th>Direccion</th>
-      <th>Barrio</th>
-      <th>Valor del departamento</th>
-      <th>Numero de cuartos</th>
-      <th>Valor de mantenimiento</th>
-      <th>Opciones</th>
+      <td>{{e.propietario.nombres}}</td>  
+      <td>{{e.direccion}}</td>
+      <td>{{e.barrio.nombreBarrio}}</td>
+      <td>{{e.valorDepartamento}}</td>
+      <td>{{e.numCuartos}}</td>
+      <td>{{e.valorMantenimiento}}</td>
+      {% if user.is_authenticated %}
+      <td>
+        <a class="btn btn-primary" href="{% url 'editar_departamento' e.id %}">Editar</a> <br>
+        <br>
+        <a class="btn btn-danger" href="{% url 'eliminar_departamento' e.id %}"
+        onclick="return confirm('¿Está seguro de la eliminación?')" >
+        Eliminar</a>
+      </td>
+      {% endif %}
     </tr>
-  </thead>
+    {% endfor %}
+  </table>
+</div>
 
-  {% for e in departamentos %}
-  <tr>
-    <td>{{e.propietario.nombres}}</td>  
-    <td>{{e.direccion}}</td>
-    <td>{{e.barrio.nombreBarrio}}</td>
-    <td>{{e.valorDepartamento}}</td>
-    <td>{{e.numCuartos}}</td>
-    <td>{{e.valorMantenimiento}}</td>
-    {% if user.is_authenticated %}
-    <td>
-      <a href="{% url 'editar_departamento' e.id %}">Editar</a> <br>
-      <a href="{% url 'eliminar_departamento' e.id %}"
-      onclick="return confirm('¿Está seguro de la eliminación?')" >
-      Eliminar</a>
-    </td>
-    {% endif %}
-  </tr>
-  {% endfor %}
-</table>
 
 <script type="text/javascript">
   $(document).ready( function () {

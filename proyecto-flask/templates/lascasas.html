@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -6,20 +8,28 @@
     <title>Casas</title>
   </head>
   <body>
-    <h2>Listado de Casas - {{numero}}</h2>
+    <div class="display-8 w-75 p-3 mx-auto">
+      <h2>Listado de Casas - {{numero}}</h2>
+    </div>
+    
 
     {% for e in datos %}
+    <div class = "w-75 p-3 mx-auto">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action active">
+          Casa
+        </a>
+        <a class="list-group-item list-group-item-action"><b>Nombre del propietario: </b>{{e['nombres']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Direccion:</b>{{e['direccion']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Barrio: </b>{{e['barrio']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Valor del inmueble: </b>{{e['valorCasa']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Color del inmueble: </b>{{e['colorCasa']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Cuartos del inmueble: </b>{{e['numCuartos']}}</a>
+        <a class="list-group-item list-group-item-action"><b>Pisos del inmueble: </b>{{e['numPisos']}}</a>
 
-    <ol>
-      <li><b>Nombre del propietario: </b>{{e['propietario']}}</li>
-      <li><b>Direccion: </b>{{e['direccion']}}</li>
-      <li><b>Barrio: </b>{{e['barrio']}}</li>
-      <li><b>Valor del inmueble: </b>{{e['valorCasa']}}</li>
-      <li><b>Color del inmueble: </b>{{e['colorCasa']}}</li>
-      <li><b>Cuartos del inmueble: </b>{{e['numCuartos']}}</li>
-      <li><b>Pisos del inmueble: </b>{{e['numPisos']}}</li>
-    </ol>
-    <hr>
+      </div>
+    </div>
     {% endfor%}
+    
   </body>
 </html>

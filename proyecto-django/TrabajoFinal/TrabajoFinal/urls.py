@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework import routers
 from administrativo import views
 
@@ -37,3 +37,4 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+urlpatterns += staticfiles_urlpatterns()
